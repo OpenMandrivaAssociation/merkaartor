@@ -36,7 +36,7 @@ mkdir -p %buildroot%_datadir/applications
 cat >%buildroot%_datadir/applications/mandriva-%name.desktop <<EOF
 [Desktop Entry]
 Name=merkaartor
-Comment=Views PDF files
+Comment=Openstreetmap client
 Exec=%_bindir/%name
 Icon=geosciences_section
 Terminal=false
