@@ -32,6 +32,19 @@ lrelease Merkaartor.pro
 rm -rf %buildroot
 make install INSTALL_ROOT=%buildroot
 
+mkdir -p %buildroot%_datadir/applications
+cat >%buildroot%_datadir/applications/mandriva-%name.desktop <<EOF
+[Desktop Entry]
+Name=merkaartor
+Comment=Views PDF files
+Exec=%_bindir/%name
+Icon=geosciences_section
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Geoscience;Qt;Science;
+EOF
+
 %clean
 rm -rf %{buildroot}
 
@@ -39,3 +52,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_bindir}/*
 %_datadir/%name
+%_datadir/applications/*.desktop
