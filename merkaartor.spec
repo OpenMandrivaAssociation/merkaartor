@@ -1,13 +1,13 @@
 Name:		merkaartor
 Version:	0.12
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
-URL:		http://qmmp.ylsoftware.com/index_en.php
+URL:		http://www.merkaartor.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	qt4-devel >= 4.4
 BuildRequires:	qt4-linguist
 BuildRequires:	libexiv-devel
-Source:		http://qmmp.ylsoftware.com/files/%{name}-%{version}.tar.bz2
+Source:		http://www.merkaartor.org/downloads/source/%{name}-%{version}.tar.bz2
 Group:		Sciences/Other
 Summary:	Openstreetmap mapping program
 
