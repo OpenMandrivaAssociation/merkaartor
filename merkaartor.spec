@@ -1,6 +1,6 @@
 Name:		merkaartor
-Version:	0.13.2
-Release:	%mkrel 3
+Version:	0.14
+Release:	%mkrel 1
 License:	GPLv2+
 URL:		http://www.merkaartor.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -8,6 +8,7 @@ BuildRequires:	qt4-devel >= 4.4
 BuildRequires:	qt4-linguist
 BuildRequires:	libexiv-devel gdal-devel
 Source:		http://www.merkaartor.org/downloads/source/%{name}-%{version}.tar.bz2
+Patch0:		merkaartor-0.14-strfmt.patch
 Group:		Sciences/Other
 Summary:	Openstreetmap mapping program
 
@@ -18,6 +19,7 @@ performant editing environment for free geographical data.
 
 %prep
 %setup -q
+%patch0 -p1 -b .fmtstr
 
 %build
 lrelease Merkaartor.pro
@@ -53,3 +55,7 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %_datadir/%name
 %_datadir/applications/*.desktop
+%{_libdir}/%{name}/plugins/background/libMYahooBackgroundPlugin.so
+%{_libdir}/%{name}/plugins/styles/libskulpture.so
+%{_datadir}/icons/hicolor/48x48/apps/%{name}.png
+
