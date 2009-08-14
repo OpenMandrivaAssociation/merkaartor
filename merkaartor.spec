@@ -24,10 +24,10 @@ performant editing environment for free geographical data.
 %build
 lrelease Merkaartor.pro
 %qmake_qt4 \
-	LIBDIR=%{_libdir}
+	PREFIX=%{_prefix} \
+	LIBDIR=%{_libdir} \
 	TRANSDIR_MERKAARTOR=%_datadir/merkaartor/translations \
 	TRANSDIR_SYSTEM=%qt4dir/translations \
-	PREFIX=%_prefix \
 	GDAL=1
 %make
 
