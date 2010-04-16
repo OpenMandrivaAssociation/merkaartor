@@ -1,5 +1,5 @@
 Name:		merkaartor
-Version:	0.14
+Version:	0.15.3
 Release:	%mkrel 1
 License:	GPLv2+
 URL:		http://www.merkaartor.org
@@ -19,7 +19,7 @@ performant editing environment for free geographical data.
 
 %prep
 %setup -q
-%patch0 -p1 -b .fmtstr
+#%patch0 -p1 -b .fmtstr
 
 %build
 lrelease Merkaartor.pro
@@ -56,7 +56,7 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %_datadir/%name
 %_datadir/applications/*.desktop
-%{_libdir}/%{name}/plugins/background/libMYahooBackgroundPlugin.so
+%{_libdir}/%{name}/plugins/background/*.so
 %{_libdir}/%{name}/plugins/styles/libskulpture.so
 %{_datadir}/icons/hicolor/48x48/apps/%{name}.png
 
