@@ -1,6 +1,6 @@
 Name:		merkaartor
 Version:	0.15.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 URL:		http://www.merkaartor.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
