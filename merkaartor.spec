@@ -1,14 +1,13 @@
 Name:		merkaartor
-Version:	0.15.3
-Release:	%mkrel 2
+Version:	0.17.2
+Release:	%mkrel 1
 License:	GPLv2+
 URL:		http://www.merkaartor.org
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	qt4-devel >= 4.4
 BuildRequires:	qt4-linguist
 BuildRequires:	libexiv-devel gdal-devel
-Source:		http://www.merkaartor.org/downloads/source/%{name}-%{version}.tar.bz2
-Patch0:		merkaartor-0.14-strfmt.patch
+BuildRequires:	boost-devel
+Source0:	http://www.merkaartor.org/downloads/source/%{name}-%{version}.tar.bz2
 Group:		Sciences/Other
 Summary:	Openstreetmap mapping program
 
@@ -19,44 +18,29 @@ performant editing environment for free geographical data.
 
 %prep
 %setup -q
-#%patch0 -p1 -b .fmtstr
 
 %build
-lrelease Merkaartor.pro
+lrelease translations/merkaartor*.ts
 %qmake_qt4 \
 	PREFIX=%{_prefix} \
 	LIBDIR=%{_libdir} \
-	TRANSDIR_MERKAARTOR=%_datadir/merkaartor/translations \
+	TRANSDIR_MERKAARTOR=%_datadir/%{name}/translations \
 	TRANSDIR_SYSTEM=%qt4dir/translations \
 	GDAL=1
 %make
 
 %install
-rm -rf %buildroot
-make install INSTALL_ROOT=%buildroot
+%makeinstall_std INSTALL_ROOT=%{buildroot}
+%find_lang %{name} --with-qt
+rm -f %{buildroot}/merkaartor.gdb-index
 
-mkdir -p %buildroot%_datadir/applications
-cat >%buildroot%_datadir/applications/mandriva-%name.desktop <<EOF
-[Desktop Entry]
-Name=merkaartor
-Comment=Openstreetmap client
-Exec=%_bindir/%name
-Icon=geosciences_section
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=Geoscience;Qt;Science;
-EOF
-
-%clean
-rm -rf %{buildroot}
-
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %{_bindir}/*
-%_datadir/%name
+%_datadir/%{name}/*.xml
+%_datadir/%{name}/world_background.osb
 %_datadir/applications/*.desktop
 %{_libdir}/%{name}/plugins/background/*.so
 %{_libdir}/%{name}/plugins/styles/libskulpture.so
 %{_datadir}/icons/hicolor/48x48/apps/%{name}.png
-
+%doc AUTHORS CHANGELOG CREDITS TODO
