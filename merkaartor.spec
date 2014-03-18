@@ -12,6 +12,7 @@ BuildRequires:	boost-devel
 BuildRequires:	gdal-devel
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(exiv2)
+BuildRequires:	pkgconfig(QtWebKit)
 
 %description
 Merkaartor is an openstreetmap (http://www.openstreetmap.org) mapping
