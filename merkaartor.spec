@@ -1,7 +1,7 @@
 Summary:	Openstreetmap mapping program
 Name:		merkaartor
 Version:	0.18.1
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Sciences/Other
 Url:		http://merkaartor.be/projects/merkaartor/
