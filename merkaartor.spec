@@ -4,7 +4,7 @@ Version:	0.18.1
 Release:	4
 License:	GPLv2+
 Group:		Sciences/Other
-Url:		http://merkaartor.be/projects/merkaartor/
+Url:		https://merkaartor.be/projects/merkaartor/
 Source0:	http://merkaartor.be/attachments/download/301/%{name}-%{version}.tar.bz2
 BuildRequires:	gdb
 BuildRequires:	qt4-linguist
